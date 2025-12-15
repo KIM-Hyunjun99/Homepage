@@ -3,208 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hyun-jun Kim's Homepage</title>
+    <title>Hyun-jun Kim | Advanced Packaging Research</title>
     <style>
+        /* --- 기본 스타일 --- */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.8;
+            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
-            padding: 0;
             background-color: #f8f9fa;
-            color: #212529;
-        }
-        header {
-            background: #212529;
-            color: #fff;
-            padding: 2rem 0;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-        header p {
-            margin: 0.5rem 0 0;
-            font-size: 1.2rem;
-            color: #adb5bd;
-        }
-        nav {
-            position: sticky;
-            top: 0;
-            background: #343a40;
-            padding: 1rem;
-            text-align: center;
-            z-index: 1000;
-        }
-        nav a {
-            color: #fff;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        nav a:hover {
-            background-color: #495057;
-            border-radius: 5px;
+            color: #333;
+            line-height: 1.8;
         }
         .container {
-            width: 80%;
             max-width: 1000px;
-            margin: auto;
-            overflow: hidden;
-            padding: 2.5rem 0;
+            margin: 0 auto;
+            padding: 20px;
         }
-        section {
-            background: #fff;
-            margin-bottom: 1.5rem;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        h1, h2, h3 {
+            font-weight: 300;
+            color: #2c3e50;
         }
         h2 {
-            border-bottom: 2px solid #dee2e6;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            color: #343a40;
-        }
-        h3 {
-            color: #0056b3;
-            margin-bottom: 0.5rem;
-        }
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-        .skills-category {
-            margin-top: 1.5rem;
-        }
-        .skills-category h4 {
-            margin-bottom: 0.5rem;
-        }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: #212529;
-            color: #fff;
-            margin-top: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-top: 40px;
         }
         a {
-            color: #0056b3;
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- 헤더 --- */
+        .hero-header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .hero-header h1 {
+            color: white;
+            font-size: 3em;
+            font-weight: bold;
+            margin: 0;
+        }
+        .hero-header p {
+            font-size: 1.2em;
+            font-weight: 300;
+            margin: 10px 0 0;
+        }
+        
+        /* --- 네비게이션 --- */
+        nav {
+            background-color: white;
+            border-bottom: 1px solid #e0e0e0;
+            text-align: center;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a {
+            font-weight: 500;
+            margin: 0 20px;
+            font-size: 1.1em;
+        }
+
+        /* --- 소개 (About) 섹션 --- */
+        .about-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        .about-section img {
+            width: 200px;
+            height: auto;
+            border-radius: 50%;
+            border: 5px solid #e0e0e0;
+        }
+        .about-text h3 {
+            margin-top: 0;
+        }
+
+        /* --- 연구 (Research) & 출판 (Publications) 섹션 --- */
+        .research-item, .publication-item {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #e9ecef;
+        }
+        .research-item h3, .publication-item h3 {
+            margin-top: 0;
+            color: #34495e;
+        }
+        .publication-item p { margin: 5px 0; }
+
+        /* --- 푸터 --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: #34495e;
+            color: #ecf0f1;
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <header class="hero-header">
         <h1>Hyun-jun Kim</h1>
-        <p>R&D Engineer specializing in Advanced Packaging & Process Data Analytics</p>
+        <p>Advanced Semiconductor Packaging & Process Researcher</p>
     </header>
 
     <nav>
         <a href="#about">About</a>
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
-        <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
     </nav>
 
     <div class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <p>
-                Innovative Nano-optoelectronics graduate with specialized expertise in <strong>next-generation semiconductor packaging</strong> (Micro LED & Silicon Photonics). Proven track record in optimizing process yields through <strong>data-driven analysis (Python)</strong> and developing novel bonding techniques using <strong>ultrasonic energy</strong>. Successfully led research projects ranging from thermal management in 3D-IC structures to fine-pitch interconnects for Micro LEDs. Combining strong leadership experience with technical rigor, I aim to contribute to cutting-edge semiconductor process solutions.
-            </p>
-            <h3>Education</h3>
-            <p>
-                <strong>Hanyang University (ERICA)</strong> | Ansan, Gyeonggi-do<br>
-                <em>Bachelor of Science in Nano-optoelectronics</em> | Mar 2019 – Feb 2025 (Graduated)<br>
-                <ul>
-                    <li><strong>GPA:</strong> 3.75 / 4.5</li>
-                    <li><strong>Academic Focus:</strong> Semiconductor Physics, Optoelectronic Devices, Packaging Technology.</li>
-                </ul>
-            </p>
+        <section id="about" class="about-section">
+            <img src="profile.jpg" alt="Hyun-jun Kim Profile Photo">
+            <div class="about-text">
+                <h3>About Me</h3>
+                <p>
+                    한양대학교(ERICA) 나노광전자학과를 졸업한 김현준입니다.<br>
+                    저는 <strong>차세대 반도체 패키징(Next-generation semiconductor packaging)</strong> 기술과 <strong>공정 데이터 분석</strong>에 깊은 전문성을 가지고 있습니다. 특히 Micro LED 및 실리콘 포토닉스와 같은 반도체 소자의 성능을 극대화하는 혁신적인 패키징 솔루션 개발에 집중하고 있습니다. 데이터 기반의 문제 해결과 꾸준한 기술 탐구를 통해 반도체 산업에 기여하는 연구자를 목표로 합니다.
+                </p>
+            </div>
         </section>
 
         <section id="research">
-            <h2>Research Experience</h2>
-            <div>
-                <h3>1. Ultrasonic-Driven Wetting Control in Dip Soldering for Micro LED Packaging</h3>
-                <p><em>Research Assistant / Co-First Author | IMLab | 2025</em></p>
-                <ul>
-                    <li><strong>Context:</strong> Addressed the limitation of conventional Fluidic Self-Assembly (FSA) methods in forming fine solder bumps (<10 µm) for Micro LED displays.</li>
-                    <li><strong>Methodology:</strong> Developed <strong>Ultrasonic-Assisted Dip Soldering (UADS)</strong> technology to enhance solder wetting on Au pads.</li>
-                    <li><strong>Key Achievements:</strong>
-                        <ul>
-                            <li>Successfully eliminated internal gas voids and oxide layers using ultrasonic cavitation energy.</li>
-                            <li>Achieved stable formation of sub-10 µm micro-solder bumps, significantly improving alignment precision and bonding yield for AR/VR display applications.</li>
-                        </ul>
-                    </li>
-                </ul>
+            <h2>Research Interests</h2>
+            <div class="research-item">
+                <h3>Ultrasonic-Assisted Dip Soldering for Fine-Pitch Interconnects</h3>
+                <p>기존의 Dip Soldering 방식이 가지는 미세 솔더 범프 형성의 한계를 극복하기 위해 초음파 에너지를 활용하는 연구를 진행했습니다. 초음파 캐비테이션(cavitation)을 통해 솔더 표면의 산화막과 내부 기포를 효과적으로 제거하여, 10µm 이하의 초미세 Micro LED 범프를 안정적으로 형성하는 <strong>초음파 보조 딥 솔더링(UADS)</strong> 기술을 개발했습니다. 이는 AR/VR 디스플레이와 같은 고정밀 기기에 필수적인 핵심 패키징 기술입니다.</p>
             </div>
-            <hr>
-            <div>
-                <h3>2. Integration of PDMS Microfluidic Cooling for CPO-PIC Platforms</h3>
-                <p><em>Team Lead / Capstone Design Project | Hanyang Univ. | 2025</em></p>
-                 <ul>
-                    <li><strong>Context:</strong> Solved thermal bottlenecks in 3D-stacked semiconductors (HBM & Co-Packaged Optics) where heat degrades refractive index stability.</li>
-                    <li><strong>Methodology:</strong> Designed a <strong>Microfluidic Cooling Channel</strong> using PDMS between the Electronic IC (EIC) and Photonic IC (PIC).</li>
-                    <li><strong>Key Achievements:</strong>
-                        <ul>
-                            <li>Conducted thermal and optical simulations to optimize the thickness of the PDMS layer (>3 µm) to minimize optical loss in waveguides.</li>
-                            <li>Demonstrated an efficient heat dissipation structure that maintains signal integrity in high-performance computing environments.</li>
-                        </ul>
-                    </li>
-                </ul>
+            <div class="research-item">
+                <h3>PDMS-based Microfluidic Cooling System</h3>
+                <p>고집적 반도체(HBM, CPO-PIC)에서 발생하는 열 문제를 해결하기 위해 PDMS를 이용한 <strong>미세 유체 냉각 채널(Microfluidic Cooling Channel)</strong>을 설계했습니다. 열 및 광학 시뮬레이션을 통해 냉각 채널의 두께와 구조를 최적화하여, 광신호 손실은 최소화하면서 칩의 열을 효과적으로 방출하는 구조를 구현했습니다. 이 연구는 고성능 컴퓨팅 환경에서 반도체의 신뢰성과 성능을 유지하는 데 기여합니다.</p>
             </div>
-             <hr>
-            <div>
-                <h3>3. Wafer Defect Pattern Recognition & Yield Analysis</h3>
-                <p><em>Data Analyst / Independent Project | 2024</em></p>
-                 <ul>
-                    <li><strong>Methodology:</strong> Utilized <strong>Python</strong> to process wafer map coordinate data.</li>
-                    <li><strong>Key Achievements:</strong>
-                        <ul>
-                            <li><strong>Data Preprocessing:</strong> Cleaned and structured raw fab data using <strong>Pandas</strong>.</li>
-                            <li><strong>Visualization:</strong> Developed automated scripts using <strong>Matplotlib</strong> to generate wafer maps, identifying specific defect signatures (Scratch, Ring, Edge, Random).</li>
-                            <li><strong>Insight:</strong> Calculated process yield (79.25%) and correlated defect clusters with potential equipment anomalies.</li>
-                        </ul>
-                    </li>
-                </ul>
+            <div class="research-item">
+                <h3>Micro LED Chip Fabrication & Analysis</h3>
+                <p>반도체 8대 공정(리소그래피, 증착, 식각 등)에 대한 높은 이해도를 바탕으로 Micro LED 칩을 직접 제작하고 분석하는 연구를 수행합니다. Host-Dopant 에너지 전달 메커니즘을 분석하고, TADF(열 활성 지연 형광) 시스템 시뮬레이션을 통해 소자의 내부 양자 효율(IQE)을 극대화하는 방안을 연구하고 있습니다.</p>
             </div>
         </section>
 
         <section id="publications">
-            <h2>Publications & Conference Presentations</h2>
-            <ul>
-                <li>H. Kim*, J. Park*, and D. Lee, “Ultrasonic-Driven Wetting Control in Dip Soldering for Microelectronic Packaging,” <em>25th International Meeting on Information Display (IMID 2025)</em>, Aug 2025. (Poster Presentation)</li>
-                <li>H. Kim*, J. Park*, and D. Lee, “Ultrasonic-Assisted Dip Soldering: How to Improve the Yield and Alignment Precision of the Micro LED Bonding Process,” <em>The Korean Society of LED and Optoelectronics</em>, 2025. (*Contributed equally)</li>
-            </ul>
-        </section>
-
-        <section id="skills">
-            <h2>Technical Skills</h2>
-            <div class="skills-category">
-                <h4>1. Semiconductor & Process Engineering</h4>
-                <ul>
-                    <li><strong>Fabrication:</strong> Hands-on knowledge of 8-major processes (Lithography, Etching, Deposition, Ion Implantation).</li>
-                    <li><strong>Packaging:</strong> Dip Soldering, UADS (Ultrasonic-Assisted), Micro-fluidic channel integration.</li>
-                    <li><strong>Device Physics:</strong> Operation principles of Micro LEDs, OLEDs, and Silicon Photonics (Waveguides, Modulators).</li>
-                </ul>
-            </div>
-            <div class="skills-category">
-                <h4>2. Data Analysis & Programming</h4>
-                 <ul>
-                    <li><strong>Languages:</strong> Python (Advanced)</li>
-                    <li><strong>Data Science Libraries:</strong> Pandas/NumPy, Matplotlib/Seaborn.</li>
-                    <li><strong>Algorithm Logic:</strong> Experience in implementing logic for pattern recognition and defect classification.</li>
-                </ul>
-            </div>
-            <div class="skills-category">
-                <h4>3. Simulation & Tools</h4>
-                <ul>
-                    <li><strong>Simulation:</strong> Thermal/Optical simulation basics.</li>
-                    <li><strong>Documentation:</strong> MS Office (Expert), Git Hub.</li>
-                </ul>
+            <h2>Publications & Presentations</h2>
+            <div class="publication-item">
+                <h3>International Conference Poster Presentation</h3>
+                <p><strong>Title:</strong> Ultrasonic-Driven Wetting Control in Dip Soldering for Microelectronic Packaging</p>
+                <p><strong>Authors:</strong> <u>H. Kim*</u>, J. Park*, and D. Lee.</p>
+                <p><strong>Conference:</strong> 25th International Meeting on Information Display (IMID 2025)</p>
+                <p><strong>Date:</strong> August 2025 (Poster Presentation)</p>
             </div>
         </section>
 
@@ -216,7 +175,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 Hyun-jun Kim. All Rights Reserved.</p>
+        <p>&copy; 2025 Hyun-jun Kim. All rights reserved.</p>
     </footer>
 
 </body>
