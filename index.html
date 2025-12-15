@@ -1,460 +1,223 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hyun-jun Kim - R&D Engineer</title>
+    <title>Hyun-jun Kim's Homepage</title>
     <style>
-        * {
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.8;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            background-color: #f8f9fa;
+            color: #212529;
         }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background-color: white;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 40px;
+            background: #212529;
+            color: #fff;
+            padding: 2rem 0;
             text-align: center;
         }
-
         header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 600;
+            margin: 0;
+            font-size: 2.5rem;
         }
-
-        header .title {
-            font-size: 1.3em;
-            margin-bottom: 20px;
-            opacity: 0.95;
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.2rem;
+            color: #adb5bd;
         }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-            font-size: 0.95em;
-        }
-
-        .contact-info a {
-            color: white;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        .contact-info a:hover {
-            opacity: 0.8;
-        }
-
-        main {
-            padding: 40px;
-        }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        section h2 {
-            color: #667eea;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
-        }
-
-        section h3 {
-            color: #333;
-            font-size: 1.3em;
-            margin-bottom: 10px;
-            margin-top: 20px;
-        }
-
-        section h4 {
-            color: #555;
-            font-size: 1.1em;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .education-item, .experience-item, .publication-item, .activity-item {
-            margin-bottom: 25px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-left: 4px solid #667eea;
-            border-radius: 4px;
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-        }
-
-        .item-title {
-            font-weight: 600;
-            color: #333;
-            font-size: 1.15em;
-        }
-
-        .item-date {
-            color: #666;
-            font-style: italic;
-            font-size: 0.95em;
-        }
-
-        .item-subtitle {
-            color: #555;
-            margin-bottom: 10px;
-            font-size: 1em;
-        }
-
-        .item-details {
-            color: #666;
-            margin-top: 10px;
-            line-height: 1.7;
-        }
-
-        .item-details ul {
-            margin-left: 20px;
-            margin-top: 8px;
-        }
-
-        .item-details li {
-            margin-bottom: 5px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .skill-category {
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #764ba2;
-        }
-
-        .skill-category h4 {
-            color: #764ba2;
-            margin-bottom: 12px;
-        }
-
-        .skill-category ul {
-            list-style: none;
-        }
-
-        .skill-category li {
-            padding: 5px 0;
-            color: #555;
-        }
-
-        .skill-category li:before {
-            content: "▹ ";
-            color: #764ba2;
-            font-weight: bold;
-        }
-
-        .coursework-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .coursework-category {
-            background-color: #f0f4ff;
-            padding: 15px;
-            border-radius: 6px;
-        }
-
-        .coursework-category h5 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 1em;
-        }
-
-        .coursework-category ul {
-            list-style: none;
-            font-size: 0.9em;
-        }
-
-        .coursework-category li {
-            padding: 3px 0;
-            color: #555;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
+        nav {
+            position: sticky;
+            top: 0;
+            background: #343a40;
+            padding: 1rem;
             text-align: center;
-            padding: 20px;
-            font-size: 0.9em;
+            z-index: 1000;
         }
-
-        @media (max-width: 768px) {
-            header {
-                padding: 40px 20px;
-            }
-
-            header h1 {
-                font-size: 2em;
-            }
-
-            main {
-                padding: 20px;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .item-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
+        nav a {
+            color: #fff;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #495057;
+            border-radius: 5px;
+        }
+        .container {
+            width: 80%;
+            max-width: 1000px;
+            margin: auto;
+            overflow: hidden;
+            padding: 2.5rem 0;
+        }
+        section {
+            background: #fff;
+            margin-bottom: 1.5rem;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: #343a40;
+        }
+        h3 {
+            color: #0056b3;
+            margin-bottom: 0.5rem;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .skills-category {
+            margin-top: 1.5rem;
+        }
+        .skills-category h4 {
+            margin-bottom: 0.5rem;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #212529;
+            color: #fff;
+            margin-top: 2rem;
+        }
+        a {
+            color: #0056b3;
         }
     </style>
 </head>
 <body>
+
+    <header>
+        <h1>Hyun-jun Kim</h1>
+        <p>R&D Engineer specializing in Advanced Packaging & Process Data Analytics</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
     <div class="container">
-        <header>
-            <h1>Hyun-jun Kim</h1>
-            <p class="title">R&D Engineer | Advanced Packaging & Process Data Analytics</p>
-            <div class="contact-info">
-                <span>📧 Email: Available upon request</span>
-                <span>📱 Mobile: Available upon request</span>
-                <span>📍 Location: South Korea</span>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                Innovative Nano-optoelectronics graduate with specialized expertise in <strong>next-generation semiconductor packaging</strong> (Micro LED & Silicon Photonics). Proven track record in optimizing process yields through <strong>data-driven analysis (Python)</strong> and developing novel bonding techniques using <strong>ultrasonic energy</strong>. Successfully led research projects ranging from thermal management in 3D-IC structures to fine-pitch interconnects for Micro LEDs. Combining strong leadership experience with technical rigor, I aim to contribute to cutting-edge semiconductor process solutions.
+            </p>
+            <h3>Education</h3>
+            <p>
+                <strong>Hanyang University (ERICA)</strong> | Ansan, Gyeonggi-do<br>
+                <em>Bachelor of Science in Nano-optoelectronics</em> | Mar 2019 – Feb 2025 (Graduated)<br>
+                <ul>
+                    <li><strong>GPA:</strong> 3.75 / 4.5</li>
+                    <li><strong>Academic Focus:</strong> Semiconductor Physics, Optoelectronic Devices, Packaging Technology.</li>
+                </ul>
+            </p>
+        </section>
+
+        <section id="research">
+            <h2>Research Experience</h2>
+            <div>
+                <h3>1. Ultrasonic-Driven Wetting Control in Dip Soldering for Micro LED Packaging</h3>
+                <p><em>Research Assistant / Co-First Author | IMLab | 2025</em></p>
+                <ul>
+                    <li><strong>Context:</strong> Addressed the limitation of conventional Fluidic Self-Assembly (FSA) methods in forming fine solder bumps (<10 µm) for Micro LED displays.</li>
+                    <li><strong>Methodology:</strong> Developed <strong>Ultrasonic-Assisted Dip Soldering (UADS)</strong> technology to enhance solder wetting on Au pads.</li>
+                    <li><strong>Key Achievements:</strong>
+                        <ul>
+                            <li>Successfully eliminated internal gas voids and oxide layers using ultrasonic cavitation energy.</li>
+                            <li>Achieved stable formation of sub-10 µm micro-solder bumps, significantly improving alignment precision and bonding yield for AR/VR display applications.</li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-        </header>
-
-        <main>
-            <section id="summary">
-                <h2>Professional Summary</h2>
-                <p class="item-details">
-                    R&D Engineer specializing in Advanced Packaging & Process Data Analytics with extensive experience 
-                    in semiconductor process engineering, data analysis, and research. Strong background in ultrasonic 
-                    technologies, microfluidic systems, and machine learning applications for wafer defect pattern recognition. 
-                    Proven track record in research publications and technical innovation in nano-optoelectronics.
-                </p>
-            </section>
-
-            <section id="education">
-                <h2>Education</h2>
-                <div class="education-item">
-                    <div class="item-header">
-                        <span class="item-title">Hanyang University (ERICA)</span>
-                        <span class="item-date">Graduation Date</span>
-                    </div>
-                    <div class="item-subtitle">Bachelor of Science in Nano-optoelectronics</div>
-                    
-                    <h3 style="font-size: 1.1em; margin-top: 20px; color: #667eea;">Key Coursework</h3>
-                    <div class="coursework-grid">
-                        <div class="coursework-category">
-                            <h5>Semiconductor Process & Physics</h5>
-                            <ul>
-                                <li>Semiconductor Process Engineering</li>
-                                <li>Semiconductor Physics</li>
-                                <li>Advanced Materials Science</li>
-                            </ul>
-                        </div>
-                        <div class="coursework-category">
-                            <h5>Data Science & Mathematics</h5>
-                            <ul>
-                                <li>Data Analytics</li>
-                                <li>Machine Learning Applications</li>
-                                <li>Statistical Methods</li>
-                            </ul>
-                        </div>
-                        <div class="coursework-category">
-                            <h5>Applied Engineering</h5>
-                            <ul>
-                                <li>Microfluidics</li>
-                                <li>Process Optimization</li>
-                                <li>Engineering Design</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="research">
-                <h2>Research Experience</h2>
-                
-                <div class="experience-item">
-                    <div class="item-header">
-                        <span class="item-title">Ultrasonic-Driven Wetting Control</span>
-                        <span class="item-date">Research Project</span>
-                    </div>
-                    <div class="item-details">
-                        <p>Investigated ultrasonic technology applications for controlling wetting behavior in advanced materials. 
-                        Focused on optimizing surface interactions and developing novel approaches for liquid manipulation at micro-scale.</p>
+            <hr>
+            <div>
+                <h3>2. Integration of PDMS Microfluidic Cooling for CPO-PIC Platforms</h3>
+                <p><em>Team Lead / Capstone Design Project | Hanyang Univ. | 2025</em></p>
+                 <ul>
+                    <li><strong>Context:</strong> Solved thermal bottlenecks in 3D-stacked semiconductors (HBM & Co-Packaged Optics) where heat degrades refractive index stability.</li>
+                    <li><strong>Methodology:</strong> Designed a <strong>Microfluidic Cooling Channel</strong> using PDMS between the Electronic IC (EIC) and Photonic IC (PIC).</li>
+                    <li><strong>Key Achievements:</strong>
                         <ul>
-                            <li>Conducted experimental studies on ultrasonic-induced wetting phenomena</li>
-                            <li>Analyzed surface tension and contact angle dynamics</li>
-                            <li>Developed protocols for enhanced wetting control mechanisms</li>
+                            <li>Conducted thermal and optical simulations to optimize the thickness of the PDMS layer (>3 µm) to minimize optical loss in waveguides.</li>
+                            <li>Demonstrated an efficient heat dissipation structure that maintains signal integrity in high-performance computing environments.</li>
                         </ul>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="item-header">
-                        <span class="item-title">PDMS Microfluidic Cooling System</span>
-                        <span class="item-date">Research Project</span>
-                    </div>
-                    <div class="item-details">
-                        <p>Designed and fabricated PDMS-based microfluidic cooling systems for thermal management applications. 
-                        Integrated advanced materials science with microfluidic engineering principles.</p>
+                    </li>
+                </ul>
+            </div>
+             <hr>
+            <div>
+                <h3>3. Wafer Defect Pattern Recognition & Yield Analysis</h3>
+                <p><em>Data Analyst / Independent Project | 2024</em></p>
+                 <ul>
+                    <li><strong>Methodology:</strong> Utilized <strong>Python</strong> to process wafer map coordinate data.</li>
+                    <li><strong>Key Achievements:</strong>
                         <ul>
-                            <li>Designed microfluidic channel architectures for optimal heat dissipation</li>
-                            <li>Fabricated PDMS devices using soft lithography techniques</li>
-                            <li>Characterized thermal performance and flow dynamics</li>
+                            <li><strong>Data Preprocessing:</strong> Cleaned and structured raw fab data using <strong>Pandas</strong>.</li>
+                            <li><strong>Visualization:</strong> Developed automated scripts using <strong>Matplotlib</strong> to generate wafer maps, identifying specific defect signatures (Scratch, Ring, Edge, Random).</li>
+                            <li><strong>Insight:</strong> Calculated process yield (79.25%) and correlated defect clusters with potential equipment anomalies.</li>
                         </ul>
-                    </div>
-                </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
-                <div class="experience-item">
-                    <div class="item-header">
-                        <span class="item-title">Wafer Defect Pattern Recognition</span>
-                        <span class="item-date">Research Project</span>
-                    </div>
-                    <div class="item-details">
-                        <p>Developed machine learning models for automated wafer defect pattern recognition and classification. 
-                        Applied data analytics to semiconductor manufacturing process improvement.</p>
-                        <ul>
-                            <li>Implemented computer vision algorithms for defect detection</li>
-                            <li>Trained machine learning models using semiconductor wafer map data</li>
-                            <li>Analyzed patterns to identify root causes in manufacturing processes</li>
-                            <li>Contributed to process yield improvement initiatives</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+        <section id="publications">
+            <h2>Publications & Conference Presentations</h2>
+            <ul>
+                <li>H. Kim*, J. Park*, and D. Lee, “Ultrasonic-Driven Wetting Control in Dip Soldering for Microelectronic Packaging,” <em>25th International Meeting on Information Display (IMID 2025)</em>, Aug 2025. (Poster Presentation)</li>
+                <li>H. Kim*, J. Park*, and D. Lee, “Ultrasonic-Assisted Dip Soldering: How to Improve the Yield and Alignment Precision of the Micro LED Bonding Process,” <em>The Korean Society of LED and Optoelectronics</em>, 2025. (*Contributed equally)</li>
+            </ul>
+        </section>
 
-            <section id="publications">
-                <h2>Publications & Conference Presentations</h2>
-                
-                <div class="publication-item">
-                    <div class="item-details">
-                        <strong>Research Publications</strong>
-                        <ul style="margin-top: 10px;">
-                            <li>Published research papers on ultrasonic-driven wetting control mechanisms</li>
-                            <li>Conference presentations on microfluidic cooling systems and PDMS applications</li>
-                            <li>Technical reports on machine learning applications in semiconductor defect analysis</li>
-                            <li>Contributed to academic papers in nano-optoelectronics and advanced packaging</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-category">
+                <h4>1. Semiconductor & Process Engineering</h4>
+                <ul>
+                    <li><strong>Fabrication:</strong> Hands-on knowledge of 8-major processes (Lithography, Etching, Deposition, Ion Implantation).</li>
+                    <li><strong>Packaging:</strong> Dip Soldering, UADS (Ultrasonic-Assisted), Micro-fluidic channel integration.</li>
+                    <li><strong>Device Physics:</strong> Operation principles of Micro LEDs, OLEDs, and Silicon Photonics (Waveguides, Modulators).</li>
+                </ul>
+            </div>
+            <div class="skills-category">
+                <h4>2. Data Analysis & Programming</h4>
+                 <ul>
+                    <li><strong>Languages:</strong> Python (Advanced)</li>
+                    <li><strong>Data Science Libraries:</strong> Pandas/NumPy, Matplotlib/Seaborn.</li>
+                    <li><strong>Algorithm Logic:</strong> Experience in implementing logic for pattern recognition and defect classification.</li>
+                </ul>
+            </div>
+            <div class="skills-category">
+                <h4>3. Simulation & Tools</h4>
+                <ul>
+                    <li><strong>Simulation:</strong> Thermal/Optical simulation basics.</li>
+                    <li><strong>Documentation:</strong> MS Office (Expert), Git Hub.</li>
+                </ul>
+            </div>
+        </section>
 
-            <section id="skills">
-                <h2>Technical Skills</h2>
-                
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h4>Semiconductor & Process Engineering</h4>
-                        <ul>
-                            <li>Semiconductor Process Engineering</li>
-                            <li>Advanced Packaging Technologies</li>
-                            <li>Wafer Fabrication Processes</li>
-                            <li>Process Integration & Optimization</li>
-                            <li>Yield Analysis & Improvement</li>
-                            <li>Materials Characterization</li>
-                        </ul>
-                    </div>
-
-                    <div class="skill-category">
-                        <h4>Data Analysis & Programming</h4>
-                        <ul>
-                            <li>Python (Proficient)</li>
-                            <li>Pandas (Data Manipulation)</li>
-                            <li>Matplotlib (Data Visualization)</li>
-                            <li>NumPy & SciPy</li>
-                            <li>Machine Learning Libraries</li>
-                            <li>Statistical Analysis</li>
-                            <li>Process Data Analytics</li>
-                        </ul>
-                    </div>
-
-                    <div class="skill-category">
-                        <h4>Simulation & Tools</h4>
-                        <ul>
-                            <li>COMSOL Multiphysics</li>
-                            <li>MATLAB</li>
-                            <li>CAD Tools for Microfluidics</li>
-                            <li>Data Visualization Tools</li>
-                            <li>Process Simulation Software</li>
-                            <li>Laboratory Equipment Operation</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section id="activities">
-                <h2>Leadership & Activities</h2>
-                
-                <div class="activity-item">
-                    <div class="item-header">
-                        <span class="item-title">Vice President of Student Council</span>
-                        <span class="item-date">Hanyang University (ERICA)</span>
-                    </div>
-                    <div class="item-details">
-                        <p>Served as Vice President of the Student Council, demonstrating leadership and organizational skills. 
-                        Coordinated student activities, facilitated communication between students and faculty, and contributed 
-                        to campus community development.</p>
-                        <ul>
-                            <li>Led student initiatives and organized campus events</li>
-                            <li>Collaborated with administration on student affairs</li>
-                            <li>Represented student interests in university committees</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section id="certifications">
-                <h2>Certifications & Languages</h2>
-                
-                <div class="activity-item">
-                    <div class="item-header">
-                        <span class="item-title">OPIc (Oral Proficiency Interview - Computer)</span>
-                        <span class="item-date">English Speaking Certification</span>
-                    </div>
-                    <div class="item-details">
-                        <p>Certified in English speaking proficiency through OPIc assessment, demonstrating strong 
-                        communication skills in professional and technical contexts.</p>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <p>&copy; 2024 Hyun-jun Kim. All rights reserved.</p>
-        </footer>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:guswns9474@gmail.com">guswns9474@gmail.com</a></p>
+            <p>GitHub: <a href="https://github.com/KIM-Hyunjun99" target="_blank">github.com/KIM-Hyunjun99</a></p>
+        </section>
     </div>
+
+    <footer>
+        <p>&copy; 2025 Hyun-jun Kim. All Rights Reserved.</p>
+    </footer>
+
 </body>
 </html>
