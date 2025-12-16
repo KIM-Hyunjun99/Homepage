@@ -12,6 +12,11 @@
             background-color: #ffffff;
             color: #333;
         }
+        .hero {
+            background: url('header-bg.jpg') center/cover no-repeat;
+            height: 300px;
+            width: 100%;
+        }
         /* --- Tab Navigation --- */
         .tab-nav {
             position: sticky;
@@ -130,13 +135,14 @@
             .research-themes {
                 grid-template-columns: 1fr;
             }
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.2rem; }
+            .hero { height: 200px; }
             .tab-nav button { padding: 1rem; font-size: 1rem; }
         }
     </style>
 </head>
 <body>
+
+    <header class="hero"></header>
 
     <nav class="tab-nav">
         <button class="tab-link active" onclick="openTab(event, 'Home')">Home</button>
