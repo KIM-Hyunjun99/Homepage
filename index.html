@@ -13,20 +13,9 @@
             color: #333;
         }
         .hero {
-            background-color: #1a2533;
-            color: #fff;
-            text-align: center;
-            padding: 80px 20px;
-        }
-        .hero h1 {
-            font-size: 3.5rem;
-            margin: 0;
-            font-weight: 600;
-        }
-        .hero p {
-            font-size: 1.4rem;
-            color: #d0d0d0;
-            margin-top: 10px;
+            background: url('header-bg.jpg') center bottom/cover no-repeat;
+            height: 300px;
+            width: 100%;
         }
         /* --- Tab Navigation --- */
         .tab-nav {
@@ -111,6 +100,28 @@
         a:hover {
             text-decoration: underline;
         }
+        /* Research Themes Section */
+        .research-themes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .research-themes ul {
+            font-size: 1.1rem;
+            line-height: 2;
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .research-themes ul li {
+            margin-bottom: 15px;
+        }
+        .research-themes img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
         /* Responsive */
         @media (max-width: 768px) {
             .about-grid {
@@ -121,28 +132,40 @@
                 width: 200px;
                 margin: 0 auto 20px;
             }
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.2rem; }
+            .research-themes {
+                grid-template-columns: 1fr;
+            }
+            .hero { height: 200px; }
             .tab-nav button { padding: 1rem; font-size: 1rem; }
         }
     </style>
 </head>
 <body>
 
-    <header class="hero">
-        <h1>Hyun-jun Kim</h1>
-        <p>Next-Generation Semiconductor Packaging Research</p>
-    </header>
+    <header class="hero"></header>
 
     <nav class="tab-nav">
-        <button class="tab-link active" onclick="openTab(event, 'About')">About</button>
+        <button class="tab-link active" onclick="openTab(event, 'Home')">Home</button>
+        <button class="tab-link" onclick="openTab(event, 'About')">About me</button>
         <button class="tab-link" onclick="openTab(event, 'Research')">Research</button>
         <button class="tab-link" onclick="openTab(event, 'Publications')">Publications</button>
         <button class="tab-link" onclick="openTab(event, 'Contact')">Contact</button>
     </nav>
 
     <main class="container">
-        <section id="About" class="tab-content active">
+        <section id="Home" class="tab-content active">
+            <h2>Research Themes</h2>
+            <div class="research-themes">
+                <ul>
+                    <li>PDMS-based Micro-Fluidic Cooling Channel</li>
+                    <li>Ultrasonic-Assisted Dip Soldering (UADS)</li>
+                    <li>Micro LED Chip Fabrication &amp; Process Analysis</li>
+                </ul>
+                <img src="research-summary.png" alt="Visual overview of research themes including PDMS micro-fluidic cooling, ultrasonic soldering, and micro LED fabrication">
+            </div>
+        </section>
+
+        <section id="About" class="tab-content">
             <h2>About Me</h2>
             <div class="about-grid">
                 <img src="profile.jpg" alt="Hyun-jun Kim Profile">
