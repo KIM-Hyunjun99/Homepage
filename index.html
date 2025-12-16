@@ -1,182 +1,221 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hyun-jun Kim | Advanced Packaging Research</title>
+    <title>Hyun-jun Kim | Research</title>
     <style>
-        /* --- 기본 스타일 --- */
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Segoe UI', Apple SD Gothic Neo, Arial, sans-serif;
+            line-height: 1.7;
             margin: 0;
-            background-color: #f8f9fa;
+            background-color: #ffffff;
             color: #333;
-            line-height: 1.8;
+        }
+        .hero {
+            background-color: #1a2533;
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            font-weight: 600;
+        }
+        .hero p {
+            font-size: 1.4rem;
+            color: #d0d0d0;
+            margin-top: 10px;
+        }
+        /* --- Tab Navigation --- */
+        .tab-nav {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .tab-nav button {
+            background: none;
+            border: none;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #555;
+            transition: color 0.3s, border-bottom 0.3s;
+            border-bottom: 3px solid transparent;
+            margin-top: -3px;
+        }
+        .tab-nav button.active {
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
         }
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
+            width: 90%;
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
         }
-        h1, h2, h3 {
-            font-weight: 300;
-            color: #2c3e50;
+        /* --- Tab Content --- */
+        .tab-content {
+            display: none; /* Initially hide all content */
+        }
+        .tab-content.active {
+            display: block; /* Show active content */
         }
         h2 {
-            border-bottom: 1px solid #e0e0e0;
+            font-size: 2.2rem;
+            font-weight: 600;
+            border-bottom: 3px solid #0056b3;
             padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h3 {
+            font-size: 1.6rem;
+            color: #1a2533;
             margin-top: 40px;
         }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .about-grid img {
+            width: 100%;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        .research-item, .publications-item {
+            margin-bottom: 25px;
+        }
+        .research-item p, .publications-item p {
+            font-size: 1.1rem;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-top: 1px solid #e0e0e0;
+            color: #666;
+            margin-top: 4rem;
+        }
         a {
-            color: #3498db;
+            color: #0056b3;
             text-decoration: none;
         }
         a:hover {
             text-decoration: underline;
         }
-
-        /* --- 헤더 --- */
-        .hero-header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        .hero-header h1 {
-            color: white;
-            font-size: 3em;
-            font-weight: bold;
-            margin: 0;
-        }
-        .hero-header p {
-            font-size: 1.2em;
-            font-weight: 300;
-            margin: 10px 0 0;
-        }
-        
-        /* --- 네비게이션 --- */
-        nav {
-            background-color: white;
-            border-bottom: 1px solid #e0e0e0;
-            text-align: center;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        nav a {
-            font-weight: 500;
-            margin: 0 20px;
-            font-size: 1.1em;
-        }
-
-        /* --- 소개 (About) 섹션 --- */
-        .about-section {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
-        .about-section img {
-            width: 200px;
-            height: auto;
-            border-radius: 50%;
-            border: 5px solid #e0e0e0;
-        }
-        .about-text h3 {
-            margin-top: 0;
-        }
-
-        /* --- 연구 (Research) & 출판 (Publications) 섹션 --- */
-        .research-item, .publication-item {
-            background-color: #fff;
-            padding: 25px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border: 1px solid #e9ecef;
-        }
-        .research-item h3, .publication-item h3 {
-            margin-top: 0;
-            color: #34495e;
-        }
-        .publication-item p { margin: 5px 0; }
-
-        /* --- 푸터 --- */
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            background-color: #34495e;
-            color: #ecf0f1;
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .about-grid img {
+                width: 200px;
+                margin: 0 auto 20px;
+            }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+            .tab-nav button { padding: 1rem; font-size: 1rem; }
         }
     </style>
 </head>
 <body>
 
-    <header class="hero-header">
+    <header class="hero">
         <h1>Hyun-jun Kim</h1>
-        <p>Advanced Semiconductor Packaging & Process Researcher</p>
+        <p>Next-Generation Semiconductor Packaging Research</p>
     </header>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#contact">Contact</a>
+    <nav class="tab-nav">
+        <button class="tab-link active" onclick="openTab(event, 'About')">About</button>
+        <button class="tab-link" onclick="openTab(event, 'Research')">Research</button>
+        <button class="tab-link" onclick="openTab(event, 'Publications')">Publications</button>
+        <button class="tab-link" onclick="openTab(event, 'Contact')">Contact</button>
     </nav>
 
-    <div class="container">
-        <section id="about" class="about-section">
-            <img src="profile.jpg" alt="Hyun-jun Kim Profile Photo">
-            <div class="about-text">
-                <h3>About Me</h3>
+    <main class="container">
+        <section id="About" class="tab-content active">
+            <h2>About Me</h2>
+            <div class="about-grid">
+                <img src="profile.jpg" alt="Hyun-jun Kim Profile">
+                <div>
+                    <p>
+                        I am a graduate of Hanyang University ERICA with a degree in Nano-optoelectronics, specializing in <strong>next-generation semiconductor packaging</strong>. My primary interest lies in developing innovative packaging technologies for Micro LED displays and silicon photonics.
+                    </p>
+                    <p>
+                        I am particularly focused on developing new bonding technologies using ultrasonic energy and optimizing process yields through data analysis with Python. From thermal management in 3D-IC structures to solving fine-pitch interconnect issues for Micro LEDs, I aim to contribute to cutting-edge semiconductor solutions based on technical rigor.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="Research" class="tab-content">
+            <h2>Research</h2>
+            <div class="research-item">
+                <h3>PDMS-based Micro-Fluidic Cooling Channel</h3>
+                <p>To address the critical heat dissipation issues in 3D-stacked semiconductors (HBM, CPO), I designed a microfluidic cooling channel using PDMS. Through thermal and optical simulations, I optimized the structure to efficiently dissipate heat while minimizing optical loss in waveguides, thereby maintaining signal integrity in high-performance computing environments.</p>
+            </div>
+            <div class="research-item">
+                <h3>Ultrasonic-Assisted Dip Soldering (UADS)</h3>
+                <p>To overcome the limitations of conventional Fluidic Self-Assembly (FSA) and to reliably form solder bumps smaller than 10µm, I developed the Ultrasonic-Assisted Dip Soldering (UADS) technology. By using ultrasonic cavitation energy to effectively remove oxide layers and internal voids from the solder, this technique significantly improves alignment precision and bonding yield for AR/VR display packaging.</p>
+            </div>
+            <div class="research-item">
+                <h3>Micro LED Chip Fabrication & Process Analysis</h3>
+                <p>With a strong foundation in the 8 major semiconductor processes, I fabricate Micro LED chips and analyze process outcomes. This involves understanding the mechanism of each piece of equipment and optimizing process recipes. I also perform automated defect recognition on fabricated wafers, using Python (Pandas, Matplotlib) to visualize wafer map data and correlate defect clusters with potential equipment anomalies to enhance process yield.</p>
+            </div>
+        </section>
+
+        <section id="Publications" class="tab-content">
+            <h2>Publications</h2>
+            <div class="publications-item">
+                <h3>Conference Poster Presentation</h3>
                 <p>
-                    한양대학교(ERICA) 나노광전자학과를 졸업한 김현준입니다.<br>
-                    저는 <strong>차세대 반도체 패키징(Next-generation semiconductor packaging)</strong> 기술과 <strong>공정 데이터 분석</strong>에 깊은 전문성을 가지고 있습니다. 특히 Micro LED 및 실리콘 포토닉스와 같은 반도체 소자의 성능을 극대화하는 혁신적인 패키징 솔루션 개발에 집중하고 있습니다. 데이터 기반의 문제 해결과 꾸준한 기술 탐구를 통해 반도체 산업에 기여하는 연구자를 목표로 합니다.
+                    <strong>"Ultrasonic-Driven Wetting Control in Dip Soldering for Microelectronic Packaging"</strong><br>
+                    H. Kim*, J. Park*, and D. Lee<br>
+                    <em>25th International Meeting on Information Display (IMID 2025)</em>, Aug 2025.<br>
+                    (* denotes co-first authors.)
                 </p>
             </div>
         </section>
-
-        <section id="research">
-            <h2>Research Interests</h2>
-            <div class="research-item">
-                <h3>Ultrasonic-Assisted Dip Soldering for Fine-Pitch Interconnects</h3>
-                <p>기존의 Dip Soldering 방식이 가지는 미세 솔더 범프 형성의 한계를 극복하기 위해 초음파 에너지를 활용하는 연구를 진행했습니다. 초음파 캐비테이션(cavitation)을 통해 솔더 표면의 산화막과 내부 기포를 효과적으로 제거하여, 10µm 이하의 초미세 Micro LED 범프를 안정적으로 형성하는 <strong>초음파 보조 딥 솔더링(UADS)</strong> 기술을 개발했습니다. 이는 AR/VR 디스플레이와 같은 고정밀 기기에 필수적인 핵심 패키징 기술입니다.</p>
-            </div>
-            <div class="research-item">
-                <h3>PDMS-based Microfluidic Cooling System</h3>
-                <p>고집적 반도체(HBM, CPO-PIC)에서 발생하는 열 문제를 해결하기 위해 PDMS를 이용한 <strong>미세 유체 냉각 채널(Microfluidic Cooling Channel)</strong>을 설계했습니다. 열 및 광학 시뮬레이션을 통해 냉각 채널의 두께와 구조를 최적화하여, 광신호 손실은 최소화하면서 칩의 열을 효과적으로 방출하는 구조를 구현했습니다. 이 연구는 고성능 컴퓨팅 환경에서 반도체의 신뢰성과 성능을 유지하는 데 기여합니다.</p>
-            </div>
-            <div class="research-item">
-                <h3>Micro LED Chip Fabrication & Analysis</h3>
-                <p>반도체 8대 공정(리소그래피, 증착, 식각 등)에 대한 높은 이해도를 바탕으로 Micro LED 칩을 직접 제작하고 분석하는 연구를 수행합니다. Host-Dopant 에너지 전달 메커니즘을 분석하고, TADF(열 활성 지연 형광) 시스템 시뮬레이션을 통해 소자의 내부 양자 효율(IQE)을 극대화하는 방안을 연구하고 있습니다.</p>
-            </div>
-        </section>
-
-        <section id="publications">
-            <h2>Publications & Presentations</h2>
-            <div class="publication-item">
-                <h3>International Conference Poster Presentation</h3>
-                <p><strong>Title:</strong> Ultrasonic-Driven Wetting Control in Dip Soldering for Microelectronic Packaging</p>
-                <p><strong>Authors:</strong> <u>H. Kim*</u>, J. Park*, and D. Lee.</p>
-                <p><strong>Conference:</strong> 25th International Meeting on Information Display (IMID 2025)</p>
-                <p><strong>Date:</strong> August 2025 (Poster Presentation)</p>
-            </div>
-        </section>
-
-        <section id="contact">
+        
+        <section id="Contact" class="tab-content">
             <h2>Contact</h2>
             <p>Email: <a href="mailto:guswns9474@gmail.com">guswns9474@gmail.com</a></p>
             <p>GitHub: <a href="https://github.com/KIM-Hyunjun99" target="_blank">github.com/KIM-Hyunjun99</a></p>
         </section>
-    </div>
+    </main>
 
     <footer>
         <p>&copy; 2025 Hyun-jun Kim. All rights reserved.</p>
     </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            // Get all elements with class="tab-content" and hide them
+            let tabcontent = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tab-link" and remove the class "active"
+            let tablinks = document.getElementsByClassName("tab-link");
+            for (let i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
 
 </body>
 </html>
