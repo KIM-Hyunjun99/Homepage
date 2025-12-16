@@ -16,38 +16,6 @@
             background: url('header-bg.jpg') center bottom/cover no-repeat;
             height: 300px;
             width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
-        }
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            color: white;
-        }
-        .hero-content h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin: 0 0 15px 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        .hero-content p {
-            font-size: 1.4rem;
-            font-weight: 400;
-            margin: 0;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
         /* --- Tab Navigation --- */
         .tab-nav {
@@ -168,20 +136,13 @@
                 grid-template-columns: 1fr;
             }
             .hero { height: 200px; }
-            .hero-content h1 { font-size: 2rem; }
-            .hero-content p { font-size: 1.1rem; }
             .tab-nav button { padding: 1rem; font-size: 1rem; }
         }
     </style>
 </head>
 <body>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Hyun-jun Kim</h1>
-            <p>Next-Generation Semiconductor Packaging Research</p>
-        </div>
-    </header>
+    <header class="hero"></header>
 
     <nav class="tab-nav">
         <button class="tab-link active" onclick="openTab(event, 'Home')">Home</button>
