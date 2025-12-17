@@ -12,7 +12,18 @@
             background-color: #ffffff;
             color: #333;
         }
-
+        .hero {
+            width: 100%;
+            display: block;
+            position: relative;
+            overflow: hidden;
+            background-color: #1a2533;
+        }
+        .hero img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
         /* --- Tab Navigation --- */
         .tab-nav {
             position: sticky;
@@ -131,12 +142,22 @@
             .research-themes {
                 grid-template-columns: 1fr;
             }
-
+            .hero {
+                max-height: 200px;
+            }
+            .hero img {
+                max-height: 200px;
+                object-fit: cover;
+            }
             .tab-nav button { padding: 1rem; font-size: 1rem; }
         }
     </style>
 </head>
 <body>
+
+    <header class="hero">
+        <img src="header-bg.jpg" alt="Laboratory Header">
+    </header>
 
     <nav class="tab-nav">
         <button class="tab-link active" onclick="openTab(event, 'Home')">Home</button>
