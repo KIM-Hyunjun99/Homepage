@@ -13,42 +13,16 @@
             color: #333;
         }
         .hero {
-            background: url('header-bg.jpg') center center/cover no-repeat;
-            height: 300px;
             width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            display: block;
             position: relative;
+            overflow: hidden;
+            background-color: #1a2533;
         }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
-        }
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            color: #fff;
-            padding: 20px;
-        }
-        .hero-content h1 {
-            font-size: 3rem;
-            margin: 0 0 15px 0;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        .hero-content p {
-            font-size: 1.3rem;
-            margin: 0;
-            font-weight: 400;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        .hero img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
         /* --- Tab Navigation --- */
         .tab-nav {
@@ -168,9 +142,13 @@
             .research-themes {
                 grid-template-columns: 1fr;
             }
-            .hero { height: 200px; }
-            .hero-content h1 { font-size: 2rem; }
-            .hero-content p { font-size: 1rem; }
+            .hero {
+                max-height: 200px;
+            }
+            .hero img {
+                max-height: 200px;
+                object-fit: cover;
+            }
             .tab-nav button { padding: 1rem; font-size: 1rem; }
         }
     </style>
@@ -178,10 +156,7 @@
 <body>
 
     <header class="hero">
-        <div class="hero-content">
-            <h1>Hyun-jun Kim</h1>
-            <p>Next-Generation Semiconductor Packaging Research</p>
-        </div>
+        <img src="header-bg.jpg" alt="Laboratory Header">
     </header>
 
     <nav class="tab-nav">
